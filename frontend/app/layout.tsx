@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "PedesSafe - Advanced Pedestrian Detection",
+  title: "StreetSense",
   description: "Next-generation pedestrian detection for autonomous vehicles",
     generator: 'v0.dev'
 }
