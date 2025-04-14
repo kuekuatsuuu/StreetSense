@@ -89,7 +89,7 @@ export default function TryNowPage() {
   const fetchSessionData = async () => {
     try {
       setConnectionError(false)
-      const response = await fetch("https://streetsense-5lt6.onrender.com/session_data")
+      const response = await fetch("http://127.0.0.1:5000/session_data")
   
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`)
@@ -171,7 +171,7 @@ export default function TryNowPage() {
       setIsLoading(true)
 
       if (webcamActive) {
-        await fetch("https://streetsense-5lt6.onrender.com/stop_webcam", { method: "POST" })
+        await fetch("http://127.0.0.1:5000/stop_webcam", { method: "POST" })
         toast({
           title: "Webcam stopped",
           description: "Detection session has ended.",
@@ -183,7 +183,7 @@ export default function TryNowPage() {
           dataFetchInterval.current = null
         }
       } else {
-        await fetch("https://streetsense-5lt6.onrender.com/start_webcam", { method: "POST" })
+        await fetch("http://127.0.0.1:5000/start_webcam", { method: "POST" })
         toast({
           title: "Webcam started",
           description: "Detection session is now active.",
@@ -296,7 +296,7 @@ export default function TryNowPage() {
               <div className="bg-gray-800 rounded-lg overflow-hidden aspect-video flex items-center justify-center relative">
                 {webcamActive ? (
                   <img
-                    src="https://streetsense-5lt6.onrender.com/video_feed"
+                    src="http://127.0.0.1:5000/video_feed"
                     alt="Webcam Feed"
                     className="w-full h-full object-contain"
                     onError={() => setConnectionError(true)}
@@ -305,7 +305,7 @@ export default function TryNowPage() {
                   <div className="text-center p-8">
                     <p className="text-gray-400 mb-4">Webcam feed will appear here</p>
                     <p className="text-sm text-gray-500">
-                      Make sure your detection server is running at https://streetsense-5lt6.onrender.com
+                      Make sure your detection server is running at http://127.0.0.1:5000
                     </p>
                   </div>
                 )}
